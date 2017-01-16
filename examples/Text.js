@@ -16,16 +16,25 @@ import Svg, {
 class TextExample extends Component{
     static title = 'Text';
     render() {
+        // Bug 1, can't use numbers in text content
+        let number = 50;
+        // number = '50'; // that will work
+
+        // Bug 2, can't use numbers in properties
+        let y = 9;
+        let x = 50;
+        // y = '9'; x = '50'; // that will work
         return <Svg
             height="30"
             width="100"
         >
             <Text
-                x="50"
-                y="9"
+                x={x}
+                y={y}
                 fill="red"
                 textAnchor="middle"
             >I love SVG!</Text>
+            <Text x="50" y="15" fill="green" textAnchor="middle">{number}</Text>
         </Svg>;
     }
 }
